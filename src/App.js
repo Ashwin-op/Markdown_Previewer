@@ -17,6 +17,10 @@ class App extends React.Component {
         this.setState({markdown});
     }
 
+    clearMarkdown() {
+        this.setState({markdown: ""});
+    }
+
 
     inputStyle = {
         width: "100%",
@@ -46,6 +50,9 @@ class App extends React.Component {
                             <textarea className="input" style={this.inputStyle} value={this.state.markdown}
                                       onChange={e => this.updateMarkdown(e.target.value)}/>
                         </div>
+                        <button type="button" className="btn btn-outline-dark" onClick={() => this.clearMarkdown()}>
+                            Clear
+                        </button>
                     </Col>
                     <Col md='6'>
                         <p className="lead my-4 text-center">Preview</p>
