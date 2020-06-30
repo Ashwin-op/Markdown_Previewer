@@ -1,6 +1,9 @@
 import React from 'react';
 import {Col, Container, Jumbotron, Row} from 'react-bootstrap';
 
+const marked = require("marked");
+
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -44,9 +47,10 @@ class App extends React.Component {
                                       onChange={e => this.updateMarkdown(e.target.value)}/>
                         </div>
                     </Col>
-                    <Col md='6' className='text-center'>
-                        <p className="lead my-4">Preview</p>
-                        <div className="rounded" style={this.outputStyle}/>
+                    <Col md='6'>
+                        <p className="lead my-4 text-center">Preview</p>
+                        <div className="rounded" style={this.outputStyle}
+                             dangerouslySetInnerHTML={{__html: marked(this.state.markdown)}}/>
                     </Col>
                 </Row>
             </div>
