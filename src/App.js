@@ -3,7 +3,6 @@ import {Col, Container, Jumbotron, Row} from 'react-bootstrap';
 
 const marked = require("marked");
 
-
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -32,7 +31,8 @@ class App extends React.Component {
         width: "100%",
         height: "50vh",
         backgroundColor: "#DCDCDC",
-        padding: "10px"
+        padding: "10px",
+        overflow: "auto"
     };
 
     render() {
