@@ -2,6 +2,19 @@ import React from 'react';
 import {Col, Container, Jumbotron, Row} from 'react-bootstrap';
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            markdown: ""
+        };
+    }
+
+    updateMarkdown(markdown) {
+        this.setState({markdown});
+    }
+
+
     inputStyle = {
         width: "100%",
         height: "50vh",
@@ -27,7 +40,8 @@ class App extends React.Component {
                     <Col md='6' className='text-center'>
                         <p className="lead my-4">Markdown Input</p>
                         <div className="mark-input">
-                            <textarea className="input" style={this.inputStyle}/>
+                            <textarea className="input" style={this.inputStyle} value={this.state.markdown}
+                                      onChange={e => this.updateMarkdown(e.target.value)}/>
                         </div>
                     </Col>
                     <Col md='6' className='text-center'>
